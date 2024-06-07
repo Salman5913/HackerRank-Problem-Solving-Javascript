@@ -81,3 +81,47 @@ let staircase = (n) => {
         console.log(line);
     }
 }
+//Given five positive integers, find the minimum and maximum values that can be calculated by summing exactly four of the five integers. Then print the respective minimum and maximum values as a single line of two space-separated long integers.
+let miniMaxSum = (arr) => {
+    let len = arr.length;
+    let removeIndex = 0;
+    let sumArray = [];
+    //set sum of all the four of five elements in array
+    for(let i = 0; i < len; i++){
+        let sum = 0;
+        for(let j = 0 ; j < len ; j++){
+            if(i != j){
+                sum += arr[j];
+            }
+        }
+        sumArray[i] = sum;
+    }
+    // get maximum and minimum sum
+    let maxSum = 0;
+    let minSum = 0;
+    for(let i = 0; i < len; i++){
+        if(sumArray[i] > maxSum){
+            maxSum = sumArray[i];
+        }
+        if(sumArray[i] < minSum || minSum == 0){
+            minSum = sumArray[i];
+        }
+    }
+    console.log(minSum+' '+maxSum);
+}
+//You are in charge of the cake for a child's birthday. You have decided the cake will have one candle for each year of their total age. They will only be able to blow out the tallest of the candles. Count how many candles are tallest.
+let birthdayCakeCandles = (candles) => {
+    let len = candles.length;
+    let tallest = 0;
+    let count = 0;
+    for(let key in candles){
+        if(candles[key] > tallest){
+            tallest = candles[key];
+            count = 0;
+        }
+        if(candles[key] == tallest){
+            count++;
+        }
+    }
+    return count;    
+}
