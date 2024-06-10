@@ -125,3 +125,37 @@ let birthdayCakeCandles = (candles) => {
     }
     return count;    
 }
+
+//Given a time in -hour AM/PM format, convert it to military (24-hour) time.
+function timeConversion(s) {
+    let time = '';
+    let len = s.length
+    let mode = s[len-2]+s[len-1];
+    let oldTime = parseInt(s[0]+s[1]);
+    if(mode == 'AM' && oldTime == 12){
+        time = `00:${s[3]+s[4]}:${s[6]+s[7]}`;
+    }else if(mode == 'PM' && oldTime != 12){
+        let newTime = String(oldTime+12);
+        time = `${newTime[0]+newTime[1]}:${s[3]+s[4]}:${s[6]+s[7]}`;
+    }else{
+        time = `${s[0]+s[1]}:${s[3]+s[4]}:${s[6]+s[7]}`;
+    }
+    return time;
+}
+
+// Grading Students
+let gradingStudents = (grades) => {
+    let newGrades = [];
+    for (let key in grades){
+        if((grades[key]+1)%5 == 0 && grades[key] >= 38){
+            newGrades[key] = grades[key]+1;
+        }
+        else if((grades[key]+2)%5 == 0 && grades[key] >= 38){
+            newGrades[key] = grades[key]+2;
+        }
+        else{
+            newGrades[key] = grades[key];
+        }
+    }
+    return newGrades;
+}
