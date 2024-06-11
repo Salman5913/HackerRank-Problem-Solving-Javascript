@@ -159,3 +159,34 @@ let gradingStudents = (grades) => {
     }
     return newGrades;
 }
+//Sam's house has an apple tree and an orange tree that yield an abundance of fruit. Using the information given below, determine the number of apples and oranges that land on Sam's house.
+let countApplesAndOranges = (s, t, a, b, apples, oranges) => {
+    let appleCount = 0;
+    let orangeCount = 0
+    for(let key in apples){
+        apples[key] += a;
+        if(apples[key] >= s && apples[key] <= t){
+            appleCount++;
+        }
+    }
+    for(let key in oranges){
+        oranges[key] += b;
+        if(oranges[key] >= s && oranges[key] <= t){
+            orangeCount++;
+        }
+    }
+    console.log(appleCount);
+    console.log(orangeCount);
+}
+// You are choreographing a circus show with various animals. For one act, you are given two kangaroos on a number line ready to jump in the positive direction (i.e, toward positive infinity).
+let kangaroo = (x1, v1, x2, v2) => {
+    while (true) {
+        x1 += v1;
+        x2 += v2;
+        if (x1 === x2) {
+            return 'YES';
+        } else if ((x1 < x2 && v1 <= v2) || (x1 > x2 && v1 >= v2)) {
+            return 'NO'; 
+        }
+    }
+}
