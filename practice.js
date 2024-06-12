@@ -981,3 +981,40 @@ function permutationEquation(p) {
     return yArr
 }
 
+
+//Minimum Differences - solution (HackerRank)
+function minimumDistances(a) {
+    let minDiff = -1
+    for (let i = 0; i < a.length; i++) {
+        let diff = 0
+        let isSame = false
+        for (let j = i + 1; j < a.length; j++) {
+            if (a[i] === a[j]) {
+                diff = Math.abs(i - j)
+                isSame = true
+            }
+        }
+        if ((diff < minDiff || minDiff == -1) && isSame) {
+            minDiff = diff
+        }
+    }
+    return minDiff
+}
+
+//cut the sticks solution (HackerRank)
+function cutTheSticks(arr) {
+    let a = arr
+    let lens = []
+    while(a.length > 0){
+        let min = Math.min(...a)
+        lens.push(a.length)
+        a.forEach((item,ind,ar) => {
+             ar[ind] =item-min 
+        })
+        let ar = a.filter(item => item != 0)
+        a = ar
+    }
+    return lens
+}
+
+
